@@ -23,8 +23,22 @@ chrome.runtime.onMessageExternal.addListener(
         }
 });
 
+
+var devicePath;
 chrome.serial.getDevices(function(ports) {
     for (var i=0; i<ports.length; i++) {
-      console.log(ports[i].path);
+      devicePath = ports[i].path;
     }
+   connectDevice(devicePath);
 });
+
+function connectDevice(path){
+    chrome.serial.connect(path, function(connectionInfo){
+        if(!connectionInfo){
+            console.log("Connection failed.");
+            return;
+        }else{
+            console.log("Connected!");
+        }
+    });
+} 
