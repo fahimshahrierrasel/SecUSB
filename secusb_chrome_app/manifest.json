@@ -1,0 +1,11 @@
+{
+    "manifest_version": 2,
+    "name": "SecUSB App",
+    "version": "1.0",
+    "minimum_chrome_version": "50",
+    "app": {
+      "background": {
+        "scripts": ["main.js"]
+      }
+    }
+  }
