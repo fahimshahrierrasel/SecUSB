@@ -15,6 +15,10 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 });
 
 function doOurWork(tabUrl){
+    const appId = "dphhpndcgbgmbmdgjppmldeolbnelimk";
+    chrome.runtime.sendMessage(appId, {'currentUrl': tabUrl}, function(response) {
+            console.log(response.response);
+      });
     console.log(tabUrl);
 }
 
